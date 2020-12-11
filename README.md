@@ -1,6 +1,7 @@
 # markdown-html-converter
 
-This PowerShell script converts the .md files to .html files (with pandoc) recursively in a folder and its children folders.
+This PowerShell script converts the .md files to .html files (with pandoc) recursively in a folder and its children folders.  
+The [CSS file](https://github.com/atakanttl/markdown-html-converter/blob/main/COMPANDOC.css) can be edited to change the appearance of the HTML file.
 
 ## Pre-requisites
 
