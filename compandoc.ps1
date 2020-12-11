@@ -24,7 +24,6 @@ if ( ($args.Length -eq 0) -or ( ($args.Length -eq 1) -or ($param -eq "help") ) )
 
 $directory= $args[1]
 
-
 if (-Not (Test-Path -Path $directory)) {
     Write-Output "Cannot find directory."
     exit
@@ -33,21 +32,20 @@ if (-Not (Test-Path -Path $directory)) {
 # Root directory to get the CSS file
 $fileLink = (Get-Item $PSCommandPath).LinkType
 if ( ($fileLink -eq "SymbolicLink") -or ($fileLink -eq "HardLink") ) {
+    # Seek the original directory if the file is linked
     $rootDir = Split-Path -Parent (Get-ChildItem $PSCommandPath | Select-Object -ExpandProperty Target)
 } else {
     $rootDir = $PSScriptRoot
 }
     
-
 $fullPath = Resolve-Path $directory
 Push-Location $fullPath
 
 function make {
     param ()
     Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
-        $newFile = $_.FullName + '.html'
         Write-Host "Compiling : " $_.Name
-        pandoc -s -f markdown -t html5 -o ($newFile) $_.FullName -c $rootDir\COMPANDOC.css 
+        pandoc -s -f markdown -t html5 -o ($_.FullName + '.html') $_.FullName -c $rootDir\COMPANDOC.css 
       }
 }
 
