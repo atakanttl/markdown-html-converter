@@ -5,7 +5,7 @@ The [CSS file](https://github.com/atakanttl/markdown-html-converter/blob/main/CO
 
 ## Pre-requisites
 
-- [pandoc](https://pandoc.org/) (Installed and added to path)
+- [pandoc](https://pandoc.org/) installed and added to path (Tested on pandoc 2.11.2)
 - [PowerShell](https://github.com/PowerShell/PowerShell) (Tested on PowerShell 7.1)
 
 ## Usage
