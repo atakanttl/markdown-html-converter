@@ -33,7 +33,7 @@ $ compandoc.ps1 clean <directory>
 $ compandoc.ps1 help
 ```
 
-compandoc can detect if it is being called from symbolic linked file. You can make the script a symbolic link (in Windows) with:
+compandoc can detect if it is being called from a symbolic linked file. You can make the script a symbolic link (on Windows) with:
 
 ```shell
 $ New-Item -ItemType SymbolicLink -Path <FULL-PATH-TO-LINK> -Value <FULL-PATH-TO-TARGET>
