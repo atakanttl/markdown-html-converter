@@ -44,7 +44,7 @@ Push-Location $fullPath
 function make {
     param ()
     Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
-        Write-Host "Compiling : " $_.Name
+        Write-Host "Compiling :  $($_.Name)"
         pandoc -s -f markdown -t html5 -o ($_.FullName + '.html') $_.FullName -c $rootDir\COMPANDOC.css 
       }
 }
@@ -52,7 +52,7 @@ function make {
 function clean {
     param ()
     Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
-        Write-Host "Removing : " $_.Name + ".html"
+        Write-Host "Removing :  $($_.Name).html"
         Remove-Item ($_.FullName + ".html") -ErrorAction SilentlyContinue
       }
 }
