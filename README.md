@@ -11,7 +11,7 @@ The [CSS file](https://github.com/atakanttl/markdown-html-converter/blob/main/CO
 
 ## Usage
 
-```shell
+```
 compandoc
 --------------------------
 Program to compile .md files to .html files inside a directory and its children.
