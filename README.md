@@ -46,7 +46,7 @@ $ ln -s <FULL-PATH-TO-FILE> <FULL-PATH-TO-TARGET>
 $ compandoc html <directory>
 ```
 
-### Powershell
+### Powershell  
 
 ```shell
 # Converts the .md files to .html files recursively inside the <directory>
