@@ -6,8 +6,7 @@ compandoc uses 'pandoc' for compilation.
 
 Arguments:
     html <directory>    : Compile to html
-    pdf <directory>     : Compile to pdf
-    clean <directory>   : Remove the compiled HTML and PDF files (*.md.html & *.md.pdf) inside the directory and its children
+    clean <directory>   : Remove the compiled HTML files (*.md.html) inside the directory and its children
     help                : Show this help text
 
 Note: You should only call the path to the file as the directory, file name excluded, as this script compiles the entire directory instead of a specific file.
@@ -52,28 +51,17 @@ function html {
       }
 }
 
-function pdf {
-    param()
-    Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
-        Write-Host "Compiling :  $($_.Name)"
-        pandoc -s -f markdown -t html5 -o ($_.FullName + '.pdf') $_.FullName -c $rootDir\COMPANDOC.css --pdf-engine=wkhtmltopdf
-    }
-}
-
 function clean {
     param ()
     Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
         Write-Host "Removing :  $($_.Name).html"
         Remove-Item ($_.FullName + ".html") -ErrorAction SilentlyContinue
-        Write-Host "Removing :  $($_.Name).pdf"
-        Remove-Item ($_.FullName + ".pdf") -ErrorAction SilentlyContinue
       }
 }
 
 switch ($param) {
     "html" { html }
     "clean" { clean }
-    "pdf" { pdf }
     Default { Write-Output $help }
 }
 

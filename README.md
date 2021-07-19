@@ -7,7 +7,6 @@ The [CSS file](https://github.com/atakanttl/markdown-html-converter/blob/main/CO
 
 - [pandoc](https://pandoc.org/) installed and added to path (Tested on pandoc 2.11.2)
 - [PowerShell](https://github.com/PowerShell/PowerShell) (Tested on PowerShell 7.1)
-- (Optional) [wkhtmltopdf](https://wkhtmltopdf.org/downloads.html) installed and added to path, if you want to convert markdown to pdf (Tested on wkhtmltopdf 0.12.6)
 
 ## Usage
 
@@ -19,8 +18,7 @@ compandoc uses 'pandoc' for compilation.
 
 Arguments:
     html <directory>    : Compile to html
-    pdf <directory>     : Compile to pdf
-    clean <directory>   : Remove the compiled HTML and PDF files (*.md.html & *.md.pdf) inside the directory and its children
+    clean <directory>   : Remove the compiled HTML files (*.md.html) inside the directory and its children
     help                : Show this help text
 
 Note: You should only call the path to the file as the directory, file name excluded, as this script compiles the entire directory instead of a specific file.
@@ -30,10 +28,7 @@ Note: You should only call the path to the file as the directory, file name excl
 # Converts the .md files to .html files recursively inside the <directory>
 $ compandoc.ps1 html <directory>
 
-# Converts the .md files to .pdf files recursively inside the <directory>
-$ compandoc.ps1 pdf <directory>
-
-# Cleans the *.md.html & *.md.pdf  files by scanning the .md files inside the <directory>
+# Cleans the *.md.html files by scanning the *.md files inside the <directory>
 $ compandoc.ps1 clean <directory>
 
 # Shows help text
