@@ -27,6 +27,9 @@ Note: You should only call the path to the file as the directory, file name excl
 ### Bash  
 
 ```shell
+# Make the script executable
+$ chmod +x ./compandoc.sh
+
 # Converts the .md files to .html files recursively inside the <directory>
 $ ./compandoc.sh html <directory>
 
